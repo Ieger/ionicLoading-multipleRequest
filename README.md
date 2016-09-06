@@ -2,13 +2,14 @@
 
 Eu estava com problema com o ionicLoading, pois quando realizava mais de uma requisição e no primeiro response meu interceptor dava hide em todos os ionicLoading, então realizei está implementação para correção do problema.
 
-
+```
 if($http.pendingRequests.length < 1) {
   $rootScope.$broadcast('loading:hide');
 }
+```
 
 Veja o exemplo abaixo :
-
+```
 $httpProvider.interceptors.push(function($rootScope, $q, $injector) {
   return {
     request: function(config) {
@@ -30,3 +31,4 @@ $httpProvider.interceptors.push(function($rootScope, $q, $injector) {
     }
   }
 });
+```
